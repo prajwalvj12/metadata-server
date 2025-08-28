@@ -43,7 +43,7 @@ app.post('/api/tickets', async (req, res) => {
         <rect x="20" y="20" width="460" height="560" fill="none" stroke="white" stroke-width="3"/>
         
         <!-- Header -->
-        <text x="250" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="bold">🎫 SECURE TICKET</text>
+        <text x="250" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="bold">SECURE TICKET</text>
         
         <!-- Event Details -->
         <text x="250" y="120" text-anchor="middle" fill="white" font-family="Arial" font-size="22" font-weight="bold">${eventName}</text>
@@ -146,7 +146,7 @@ app.post('/api/verify', (req, res) => {
   }
 });
 
-// Health check
+// Health check - FIXED SYNTAX ERROR HERE
 app.get('/', (req, res) => {
   res.json({ 
     status: 'QR Ticket Metadata Server Running',
@@ -160,7 +160,7 @@ app.get('/', (req, res) => {
     ],
     endpoints: {
       createTicket: 'POST /api/tickets',
-      getMeta 'GET /api/tickets/:tokenId',
+      getMeta: 'GET /api/tickets/:tokenId' , // FIXED: Was missing quotes
       verifyQR: 'POST /api/verify'
     }
   });
